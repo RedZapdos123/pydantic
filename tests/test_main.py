@@ -2798,6 +2798,7 @@ def test_model_validate_with_validate_fn_override_respects_extra_annotation() ->
         }
     ]
 
+    # Runtime override to `allow` should still enforce the typed `__pydantic_extra__` schema.
     m = Model.model_validate({'a': 1, 'b': '2'}, extra='allow')
     assert m.model_extra == {'b': 2}
 
